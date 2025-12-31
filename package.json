@@ -1,0 +1,18 @@
+{
+  "name": "crossy-road-clone",
+  "private": true,
+  "author": "Julien Genty",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "tree": "^0.1.3"
+  }
+}
