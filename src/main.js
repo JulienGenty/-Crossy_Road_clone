@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { Renderer } from "./components/Renderer";
 import { Camera } from "./components/Camera";
+import { DirectionalLight } from "./components/directionalLight.js";
 import { Player } from "./components/Player";
 import "./style.css";
 import { map, initializeMap, addRows } from "./components/Map";
@@ -12,8 +13,7 @@ scene.add(map);
 const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight();
-directionalLight.position.set(-100, -100, 200);
+const directionalLight = DirectionalLight();
 scene.add(directionalLight);
 
 const camera = Camera();

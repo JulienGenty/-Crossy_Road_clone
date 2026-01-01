@@ -9,11 +9,15 @@ export function Car(initialTileIndex, color, direction) {
 
   const main = new THREE.Mesh(new THREE.BoxGeometry(60, 30, 15), new THREE.MeshLambertMaterial({ color: color, flatShading: true }));
   main.position.z = 12;
+  main.castShadow = true;
+  main.receiveShadow = true;
   car.add(main);
 
-  const cabin = new THREE.Mesh(new THREE.BoxGeometry(33, 24, 12), new THREE.MeshLambertMaterial({ color: "white", color: color, flatShading: true }));
+  const cabin = new THREE.Mesh(new THREE.BoxGeometry(33, 24, 12), new THREE.MeshLambertMaterial({ color: "white", flatShading: true }));
   cabin.position.x = -6;
   cabin.position.z = 25.5;
+  cabin.castShadow = true;
+  cabin.receiveShadow = true;
   car.add(cabin);
 
   const frontWheel = Wheel(18);
