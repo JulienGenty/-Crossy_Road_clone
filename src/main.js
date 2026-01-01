@@ -2,13 +2,15 @@ import * as THREE from "three";
 import { Renderer } from "./components/Renderer";
 import { Camera } from "./components/Camera";
 import { DirectionalLight } from "./components/directionalLight.js";
-import { Player } from "./components/Player";
-import { map, initializeMap, addRows } from "./components/Map";
+import { player } from "./components/Player";
+import { map, initializeMap } from "./components/Map";
 import { animateVehicles } from "./animateVehicles.js";
+import { animatePLayer } from "./animatePlayer.js";
+import "./collectUserInput.js";
 import "./style.css";
 
 const scene = new THREE.Scene();
-scene.add(Player());
+scene.add(player);
 scene.add(map);
 
 const ambientLight = new THREE.AmbientLight();
@@ -24,7 +26,6 @@ initializeGame();
 
 function initializeGame() {
   initializeMap();
-  // addRows();
 }
 
 const renderer = Renderer();
@@ -32,6 +33,6 @@ renderer.setAnimationLoop(animate);
 
 function animate() {
   animateVehicles();
-
+  animatePLayer();
   renderer.render(scene, camera);
 }
