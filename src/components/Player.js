@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
 
 export const player = Player();
 
@@ -25,6 +26,9 @@ export const position = { currentRow: 0, currentTile: 0 };
 export const movesQueue = [];
 
 export function queueMove(direction) {
+  const isValidMove = endsUpInValidPosition({ rowIndex: position.currentRow, tileIndex: position.currentTile }, [...movesQueue, direction]);
+
+  if (!isValidMove) return;
   movesQueue.push(direction);
 }
 

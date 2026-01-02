@@ -17,13 +17,13 @@ export const metadata = [
   {
     type: "car",
     direction: false,
-    speed: 10,
+    speed: 40,
     vehicles: [{ initialTileIndex: 2, color: 0xff0000 }],
   },
   {
     type: "truck",
     direction: true,
-    speed: 10,
+    speed: 40,
     vehicles: [{ initialTileIndex: -4, color: 0xff0000 }],
   },
 ];
