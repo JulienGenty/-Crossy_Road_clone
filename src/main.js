@@ -17,10 +17,11 @@ const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
 const directionalLight = DirectionalLight();
-scene.add(directionalLight);
+directionalLight.target = player;
+player.add(directionalLight);
 
 const camera = Camera();
-scene.add(camera);
+player.add(camera);
 
 initializeGame();
 
