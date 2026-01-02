@@ -4,29 +4,9 @@ import { Tree } from "./Tree.js";
 import { Road } from "./Road.js";
 import { Car } from "./Car.js";
 import { Truck } from "./Truck.js";
+import { generateRows } from "../utilities/generateRows.js";
 
-export const metadata = [
-  {
-    type: "forest",
-    trees: [
-      { tileIndex: -3, height: 50 },
-      { tileIndex: 2, height: 30 },
-      { tileIndex: 5, height: 50 },
-    ],
-  },
-  {
-    type: "car",
-    direction: false,
-    speed: 40,
-    vehicles: [{ initialTileIndex: 2, color: 0xff0000 }],
-  },
-  {
-    type: "truck",
-    direction: true,
-    speed: 40,
-    vehicles: [{ initialTileIndex: -4, color: 0xff0000 }],
-  },
-];
+export const metadata = [];
 
 export const map = new THREE.Group();
 
@@ -39,8 +19,13 @@ export function initializeMap() {
 }
 
 export function addRows() {
-  metadata.forEach((rowData, index) => {
-    const rowIndex = index + 1;
+  const newMetadata = generateRows(20);
+
+  const startIndex = metadata.length;
+  metadata.push(...newMetadata);
+
+  newMetadata.forEach((rowData, index) => {
+    const rowIndex = startIndex + index + 1;
 
     if (rowData.type === "forest") {
       const row = Grass(rowIndex);
@@ -77,5 +62,4 @@ export function addRows() {
       map.add(row);
     }
   });
-  console.log(metadata)
 }

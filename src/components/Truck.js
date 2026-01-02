@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { tileSize } from "../constants.js";
 import { Wheel } from "./Wheel.js";
 
-export function Truck(initialTileIndex, direction, color) {
+export function Truck(initialTileIndex, color, direction) {
   const truck = new THREE.Group();
   truck.position.x = initialTileIndex * tileSize;
   if (!direction) truck.rotation.z = Math.PI;
@@ -29,6 +29,6 @@ export function Truck(initialTileIndex, direction, color) {
 
   const backWheel = Wheel(-35);
   truck.add(backWheel);
-  
+
   return truck;
 }
